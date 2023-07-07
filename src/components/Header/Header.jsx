@@ -1,15 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { styled } from 'styled-components';
 
 import ProfileMenu from './ProfileMenu';
 import ThemeModeSwitch from './ThemeModeSwitch';
 
 function Header() {
+  const [isSwitchOn, setSwitchOn] = useState(false);
+  const handleSwitchChange = (event) => {
+    setSwitchOn(event.target.checked);
+  };
+  // dark mode toggle
+  if (isSwitchOn) {
+    document.querySelector('body').setAttribute('data-theme', 'dark');
+  } else {
+    document.querySelector('body').removeAttribute('data-theme');
+  }
   return (
     <StyledHeader>
       <h1>Will.do</h1>
       <div id="header-right-div">
-        <ThemeModeSwitch />
+        <ThemeModeSwitch checked={isSwitchOn} onChange={handleSwitchChange} />
         <ProfileMenu />
       </div>
     </StyledHeader>
@@ -25,6 +35,7 @@ const StyledHeader = styled.header`
   justify-content: space-between;
   align-items: center;
   padding: 0 2rem;
+  background-color: var(--background_color);
 
   h1 /* Logo */ {
     font-size: 2rem;

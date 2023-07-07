@@ -6,15 +6,41 @@ Colors: #f0f5f9, #c9d6df, #52616b, #1e2022
 
 :root {
   --background_color: #f0f5f9;
+  --input_background: #fff;
   --color_deep: #1e2022;
   --color_light: #52616b;
+  --input_shadow: 1px 1px 5px 0 #ccc;
+  --button_background: rgb(33, 43, 54);
+  --inverted_color: white;
 }
 [data-theme='dark'] {
-    --background_color: #1e2022
-    --color_deep: #f0f5f9
+  --background_color: #1e2022;
+  --input_background: #353535;
+  --color_deep: #f0f5f9;
+  --input_shadow: 1px 1px 5px 0 #8e8e8e;
+  --button_background: #fafafa;
+  --inverted_color: #222;
 }
 body {
   background-color: var(--background_color);
   color: var(--color_deep);
   font-family: 'Inter', -apple-system, sans-serif;
+}
+
+input,
+textarea,
+.feed {
+  background-color: var(--input_background);
+  color: var(--color_deep);
+  box-shadow: var(--input_shadow);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  color: var(--color_deep);
 }

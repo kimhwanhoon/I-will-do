@@ -22,7 +22,14 @@ export default function ProfileMenu() {
   };
   return (
     <React.Fragment>
-      <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
+      <Box
+        sx={{
+          display: 'flex',
+          alignItems: 'center',
+          textAlign: 'center',
+          borderRadius: '12px',
+        }}
+      >
         <Tooltip title="Account settings">
           <IconButton
             onClick={handleClick}
@@ -75,22 +82,10 @@ export default function ProfileMenu() {
         transformOrigin={{ horizontal: 'right', vertical: 'top' }}
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
-        <MenuItem onClick={handleClose}>
-          <Avatar /> My account
-        </MenuItem>
+        <MenuItem onClick={handleClose}>My account</MenuItem>
         <Divider />
-        <MenuItem onClick={handleClose}>
-          <ListItemIcon>
-            <Settings fontSize="small" />
-          </ListItemIcon>
-          Settings
-        </MenuItem>
-        <MenuItem onClick={handleClose}>
-          <ListItemIcon>
-            <Logout fontSize="small" />
-          </ListItemIcon>
-          Logout
-        </MenuItem>
+        <MenuItem onClick={handleClose}>Settings</MenuItem>
+        <MenuItem onClick={handleClose}>Logout</MenuItem>
       </Menu>
     </React.Fragment>
   );
